@@ -1,0 +1,29 @@
+---
+title: "Vectorized Operations"
+author: "Jayant"
+date: "2/22/2020"
+output: pdf_document
+---
+
+Basically doing operations in parallel
+
+# Vectors 
+```{r}
+x <- 1:4 ; y <- 6:9
+x + y               
+x > 2
+y == 8
+x * y
+x / y
+```
+This does elementwise operations
+
+
+# Matrices
+```{r}
+x <- matrix(1:4,2,2) ; y <- matrix(rep(10,4),2,2) # y is 2x2 with all values as 10
+x * y     # Elementwise multiplication
+x / y
+x %*% y   # True multiplication
+
+```
