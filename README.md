@@ -5,4 +5,4 @@ It has the a brief on the basics of R programming
 
 
 # CREDIT
-all credit to the John Hopkins Universty's Coursera course on Data Science.
+all credit to the Johns Hopkins Universty's Coursera course on Data Science.
