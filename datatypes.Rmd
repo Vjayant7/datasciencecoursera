@@ -1,0 +1,101 @@
+---
+title: "Data Types"
+author: "Jayant"
+date: "2/21/2020"
+output: pdf_document
+---
+**Atomic classes in numeric, logical, character, integer, and complex vectors.**
+# Vectors
+```{r}
+x <- c(1.5,3.2)            #Numeric
+x
+x <- c("HA","HA")          #Character
+x
+x <- 1:4                   #Integer
+x
+x <- 1:4                   #Logical
+x
+x <- c(1+0.5i,6-0.3i)      #Complex
+x
+x <- vector()
+x
+x <- vector("numeric",10)  #Numeric vector of length 10
+x
+```
+
+If a vector has different classes it will take the least level one as its own class . levels are as follows:-
+**Character<Numeric<Logic**
+
+## Coercion
+explicitly coerce objects from one class to another using functions that usually start with the word "as."
+```{r}
+x <- 0:6
+x
+class(x)
+as.numeric(x)      # Converts to Numeric
+as.character(x)    # Converts to Character
+as.logical(x)      # Converts to Logic
+as.complex(x)      # Converts to Complex
+x <- c("a","b","c")
+as.numeric(x)
+```
+
+# Lists
+**They are an exception of vectors.**
+```{r}
+x <- list(1,"a",TRUE,1+0.9i)
+x
+```
+
+# Matrix
+
+```{r}
+m <- matrix(nrow = 2,ncol = 2)
+m
+m <- matrix(1:4,nrow = 2,ncol = 2)
+m
+dim(m)
+attributes(m)
+m <- 1:6
+m
+dim(m) <- c(2,3)
+m
+x <- 0:2
+x
+y <- 10:12
+y
+rbind(x,y)
+cbind(x,y)
+```
+
+Values are entered column wise when we convert array to matrix
+
+# Factors
+Used to represent categorical data by using descreptive words instead of using integers
+```{r}
+x <- factor(c("y","y","n","y"))
+x
+unclass(x)
+x <- factor(c("y","y","n","y"),levels = c("y","n"))
+x
+```
+
+# Naming Rows and Columns (Data Frames)
+```{r}
+x <- data.frame(foo=1:4,bar = c("h","e","l","l"))
+x
+x <- 1:3
+x
+names(x) <- c("A","B","C")
+x
+names(x)
+x <- list(A = 1:3, B = 4:6, C = 7:9)
+x
+m <- matrix(1:4,nrow = 2,ncol = 2)
+dimnames(m) <- list(c("A","B"),c("C","D"))
+m
+```
+
+# Summary
+
+So far, we've talked about the atomic classes in numeric, logical, character, integer, and complex vectors. We talked about how vectors can only have elements of the same class and the main exception to that is lists which can have elements of different classes. There are factors which are used for, for coding categorical data, with ordered and unordered data. There are missing values that are represented by NAs, and NANs. Data frames are used to store tabular data or each COM can be of a different class. And finally, all our R objects can have names which mean usul, which can be useful for creating self-describing data.
