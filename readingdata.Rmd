@@ -37,7 +37,14 @@ Last argument is strings as factors this defaults to true. And the idea is that 
 You can use read.table usually without specifying any of the other arguments besides the file name.
 ```{r}
 #   data <- read.table("foo.txt") Reads the file foo from the computer 
+#   classes <- sapply(data,class)
 ```
+Classes will get all the callses of the different columns in the table.
+
+sapply is basically looping through the columns.
+
+nrows,sapply makes the table reading faster.
+
 
 **It will figure out evrything else on its own.**
 
@@ -58,4 +65,5 @@ Memory req for the table = no. of rows X no. of columns X 8 this is in bytes
 the bytes value / (2^20bytes/MB) gives the value in MB , and that divided by 2^10 gives GB
 
 We req 2x the memory to properly read this data
+
 
