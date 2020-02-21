@@ -1,0 +1,53 @@
+---
+title: "Data Output"
+author: "Jayant"
+date: "2/21/2020"
+output: pdf_document
+---
+DPUT or DUMP give output with meta data in text format which is more useful than the others :-
+
+1. write.table
+
+2. writeLines
+
+3. save
+
+4. serialize
+
+Meta data helps when retieving data from the file and helps avoid loss of data.
+
+# DPUT
+```{r}
+y <- data.frame(a = 1 , b = "a")
+dput(y,file="y.R")
+
+new.y <- dget("y.R")
+new.y
+```
+**O/P of dput (including meta data)**
+
+Structure(  list(  a = 1, 
+
+                   b = structure(1L, .Label = "a",
+                   
+                                 class = "factor")
+                                 
+                                )
+                                
+          ,  class = "data.frame", row.names = c(NA, -1L) 
+          
+         )
+         
+DGET can only be used on one R object.
+
+# DUMP
+Dump can be used on multiple R objects
+```{r}
+x <- "foo"
+y <- data.frame(a = 1 , b = "a")
+dump(c("x","y"),file = "data.R")
+rm(x,y)                         #Removing x and y will work without this.
+source("data.R")
+y
+x
+```
